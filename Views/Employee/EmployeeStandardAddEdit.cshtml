@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Account Settings";
+    var genderList = ViewBag.GenderList as List<SelectListItem>;
+}
+
+<h2>Standard Helpers</h2>
+
+@using (Html.BeginForm("SaveEmployee", "Employee", FormMethod.Post))
+{
+    <div class="mb-3">
+        @Html.Label("FirstName", "First Name", new { @class = "form-label" })
+        @Html.TextBox("FirstName", "", new { @class = "form-control", placeholder = "Enter first name" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("LastName", "Last Name", new { @class = "form-label" })
+        @Html.TextBox("LastName", "", new { @class = "form-control", placeholder = "Enter last name" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("Email", "Email", new { @class = "form-label" })
+        @Html.TextBox("Email", "", new { @class = "form-control", type = "email", placeholder = "Enter email" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("PhoneNumber", "Phone Number", new { @class = "form-label" })
+        @Html.TextBox("PhoneNumber", "", new { @class = "form-control", type = "tel", placeholder = "Enter phone number" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("DateOfBirth", "Date of Birth", new { @class = "form-label" })
+        @Html.TextBox("DateOfBirth", "", new { @class = "form-control", type = "date" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("Gender", "Gender", new { @class = "form-label" })
+        @Html.DropDownList("Gender", genderList, "Select Gender", new { @class = "form-select" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("HireDate", "Hire Date", new { @class = "form-label" })
+        @Html.TextBox("HireDate", "", new { @class = "form-control", type = "date" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("JobTitle", "Job Title", new { @class = "form-label" })
+        @Html.TextBox("JobTitle", "", new { @class = "form-control", placeholder = "Enter job title" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("Department", "Department", new { @class = "form-label" })
+        @Html.TextBox("Department", "", new { @class = "form-control", placeholder = "Enter department" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("Salary", "Salary", new { @class = "form-label" })
+        @Html.TextBox("Salary", "", new { @class = "form-control", type = "number", step = "0.01", placeholder = "Enter salary" })
+    </div>
+
+    <div class="form-check mb-3">
+        @Html.CheckBox("IsActive", false, new { @class = "form-check-input" })
+        @Html.Label("IsActive", "Is Active", new { @class = "form-check-label" })
+    </div>
+
+    <div class="mb-3">
+        @Html.Label("Modified", "Modified Date", new { @class = "form-label" })
+        @Html.TextBox("Modified", "", new { @class = "form-control", type = "date" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success mt-3">
+        @TempData["Message"]
+    </div>
+}

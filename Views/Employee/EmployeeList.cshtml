@@ -1,0 +1,36 @@
+﻿@model System.Data.DataTable
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Employee Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Rows.Count > 0)
+        {
+            foreach (System.Data.DataRow row in Model.Rows)
+            {
+                <tr>
+                    <td>@row["EmployeeId"]</td>
+                    <td>@row["FirstName"] @row["LastName"]</td>
+                    <td>@row["Email"]</td>
+                    <td>@row["PhoneNumber"]</td>
+                    <td>@row["Department"]</td>
+                    <td>@row["Salary"]</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center">No employees found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
